@@ -22,6 +22,12 @@ type Teacher struct {
 	details Student
 }
 
+type employer struct {
+	int
+	string
+	float64
+}
+
 func main() {
 
 	a := &employee{"Nitin chauhan", 999999}
@@ -36,4 +42,7 @@ func main() {
 	fmt.Println("Student: ", stu)
 	fmt.Println("Teacher: ", teachr)
 
+	res := employer{1, "Ram", 124545.34}
+
+	fmt.Println("employer details: ", res)
 }
