@@ -20,6 +20,13 @@ type team struct {
 	salary  int
 }
 
+//Method Can Accept both Pointer and Value
+
+type student struct {
+	name   string
+	branch string
+}
+
 func main() {
 	// Method with struct
 	res1 := author{
@@ -56,6 +63,18 @@ func main() {
 	fmt.Println("country: ", res3.country)
 	fmt.Println("salary : ", res3.salary)
 
+	res4 := student{
+		name:   "Nitin Chauhan",
+		branch: "CSE",
+	}
+	fmt.Println("Branch Name(Before): ", res4.branch)
+	res4.show_1("COMPUTER APPLICATIONS")
+
+	fmt.Println("Branch Name(After): ", res4.branch)
+
+	(&res4).show_2()
+	fmt.Println("Student Name (After): ", res4.name)
+
 }
 
 // Method with struct
@@ -74,4 +93,17 @@ func (d1 data) multiply(d2 data) data {
 // Method with Pointer reciever
 func (t *team) info(newsalary int) {
 	t.salary = newsalary
+}
+
+// Method with a pointer
+// receiver of student type
+func (a *student) show_1(abranch string) {
+	a.branch = abranch
+}
+
+// Method with a value
+// receiver of student type
+func (a student) show_2() {
+	a.name = "Ram"
+	fmt.Println("Student Name (Before): ", a.name)
 }
