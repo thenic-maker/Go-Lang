@@ -42,4 +42,9 @@ func main() {
 			fmt.Println(arr1[p][q])
 		}
 	}
+
+	// ellipse
+	myarr := [...]int{26, 456, 386, 6, 368}
+	sort.Ints(myarr[:])
+	fmt.Println("ellipse len and and its element: ", len(myarr), myarr)
 }
