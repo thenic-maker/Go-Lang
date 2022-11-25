@@ -5,6 +5,17 @@ import (
 	"sort"
 )
 
+func myfun(a [6]int, size int) int {
+	var k, val, r int
+
+	for k = 0; k < size; k++ {
+		val += a[k]
+	}
+
+	r = val / size
+	return r
+}
+
 func main() {
 
 	arr := []int{12, 6, 76, 98, 5}
@@ -58,5 +69,14 @@ func main() {
 
 	fmt.Println("ARRAY BY VALUE ", newArr1)
 	fmt.Println("ARRAY BY REFERENCE ", *newArr2)
+
+	//
+	// Creating and initializing an array
+	var arr11 = [6]int{67, 59, 29, 35, 4, 34}
+	var res int
+
+	// Passing an array as an argument
+	res = myfun(arr11, 6)
+	fmt.Printf("Final result is: %d ", res)
 
 }
