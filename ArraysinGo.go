@@ -47,4 +47,16 @@ func main() {
 	myarr := [...]int{26, 456, 386, 6, 368}
 	sort.Ints(myarr[:])
 	fmt.Println("ellipse len and and its element: ", len(myarr), myarr)
+
+	newArr1 := myarr
+	newArr2 := &myarr
+
+	fmt.Println("ARRAY BY VALUE ", newArr1)
+	fmt.Println("ARRAY BY REFERENCE ", *newArr2)
+
+	myarr[0] = 5
+
+	fmt.Println("ARRAY BY VALUE ", newArr1)
+	fmt.Println("ARRAY BY REFERENCE ", *newArr2)
+
 }
