@@ -28,4 +28,8 @@ func main() {
 	for index, ele := range myslice2 {
 		fmt.Printf("Index = %d and element = %s\n", index, ele)
 	}
+
+	for _, ele1 := range myslice2 {
+		fmt.Printf("Element : %s \n", ele1)
+	}
 }
