@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
 	"sort"
 )
@@ -45,7 +46,7 @@ func main() {
 	fmt.Println("printing the s1 slice:", s1)
 
 	// this is the operation for the sorting
-	slc1 := []string{"s", "m", "l", "i", "a"}
+	slc1 := []string{"s", "m", "i", "l", "e"}
 	slc2 := []int{45, 67, 23, 90, 33, 21, 56, 78, 89}
 
 	fmt.Println("Before sorting:")
@@ -60,5 +61,17 @@ func main() {
 	fmt.Println("\nAfter sorting:")
 	fmt.Println("Slice 1: ", slc1)
 	fmt.Println("Slice 2: ", slc2)
+
+	// trim of slice
+	slice1 := []byte("***hello trim slice***")
+	slice2 := []byte{'*', '*', 'a', 'b', 'c', '@', '@'}
+
+	result1 := bytes.Trim(slice1, "*")
+	result2 := bytes.Trim(slice2, "*@")
+	result3 := bytes.Trim([]byte("!!!hello nitin chauhan $$$"), "!&")
+
+	fmt.Printf("\nresult1 : %s", result1)
+	fmt.Printf("\nresult2 : %s", result2)
+	fmt.Printf("\nresult3 : %s", result3)
 
 }
