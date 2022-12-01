@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"fmt"
 	"sort"
+	"strings"
 )
 
 func main() {
@@ -73,5 +74,19 @@ func main() {
 	fmt.Printf("\nresult1 : %s", result1)
 	fmt.Printf("\nresult2 : %s", result2)
 	fmt.Printf("\nresult3 : %s", result3)
+
+	nslice := []byte("Nitin Chauhan")
+	nstr := "NitinChauhan"
+	fmt.Println(nslice)
+
+	nres := strings.Split(nstr, "")
+	fmt.Println(nres)
+
+	nres2 := bytes.Split(nslice, []byte(""))
+
+	nres3 := bytes.Split([]byte("hello x how are you"), []byte(""))
+
+	fmt.Printf("\nSlice 3: %s", nres2)
+	fmt.Printf("\nSlice 3: %s", nres3)
 
 }
