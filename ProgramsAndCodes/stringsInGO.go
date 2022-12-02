@@ -58,4 +58,14 @@ func main() {
 	res8 := strings.SplitAfterN(str6, "a", 3)
 
 	fmt.Println("splitAfterN of string : ", res8)
+
+	//Comapring of string
+	str7 := "Nitin"
+	str8 := "nitin"
+	str9 := "Nitin"
+
+	fmt.Println("using == ", str7 == str8)
+	fmt.Println("using comapare method : ", strings.Compare(str7, str9))
+	fmt.Println("using comapare method : ", strings.Compare("hello", "Hello"))
+
 }
