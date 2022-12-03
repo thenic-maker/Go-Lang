@@ -14,5 +14,14 @@ func Disp(str string) {
 func main() {
 	go Disp("hello")
 
-	Disp("Nitin chauhan")
+	Disp("Nitin Chauhan")
+
+	// anonymous go routines
+	go func() {
+
+		fmt.Println("this is anonymous Goroutine")
+	}()
+
+	time.Sleep(1 * time.Second)
+	fmt.Println("GoodBye!! to Main function")
 }
