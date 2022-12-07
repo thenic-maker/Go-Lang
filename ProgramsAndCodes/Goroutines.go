@@ -11,6 +11,18 @@ func Disp(str string) {
 		fmt.Println(str)
 	}
 }
+
+func portal1(channel1 chan string) {
+	time.Sleep(1 * time.Second)
+	channel1 <- "welcome to channel1"
+
+}
+
+func portal2(channel1 chan string) {
+	time.Sleep(1 * time.Second)
+	channel1 <- "welcome to channel2"
+}
+
 func main() {
 	go Disp("hello")
 
@@ -24,4 +36,22 @@ func main() {
 
 	time.Sleep(1 * time.Second)
 	fmt.Println("GoodBye!! to Main function")
+	// select in go lang
+	R1 := make(chan string)
+	R2 := make(chan string)
+
+	go portal1(R1)
+	go portal1(R2)
+
+	select {
+	case op1 := <-R1:
+		fmt.Println(op1)
+
+	case op2 := <-R2:
+		fmt.Println(op2)
+
+		//default:
+		//	fmt.Println("not found")
+	}
+
 }
