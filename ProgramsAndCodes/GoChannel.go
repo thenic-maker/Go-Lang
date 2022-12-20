@@ -42,4 +42,41 @@ func main() {
 		}
 		fmt.Println("Channel Open ", res, ok)
 	}
+
+	// blocking and send
+	chan3 := make(chan string)
+
+	// Anonymous goroutine
+	go func() {
+		chan3 <- "hello"
+		chan3 <- "nitin"
+		chan3 <- "chauhan"
+		chan3 <- "EE"
+		close(chan3)
+	}()
+
+	// Using for loop
+	for res := range chan3 {
+		fmt.Println(res)
+	}
+	fmt.Println(len(chan3))
+
+	mychnl := make(chan string, 5)
+	mychnl <- "hello"
+	mychnl <- "nitin"
+	mychnl <- "chauhan"
+	mychnl <- "EE"
+
+	// Finding the length of the channel
+	// Using len() function
+	fmt.Println("Length of the channel is: ", len(mychnl))
+	fmt.Println("Capacity of the channel is: ", cap(mychnl))
+
+	//unidirectional channel
+	c1 := make(<-chan string)
+	c2 := make(chan<- string)
+
+	fmt.Printf("%T\n", c1)
+	fmt.Printf("%T", c2)
+
 }
