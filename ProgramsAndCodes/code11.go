@@ -82,7 +82,7 @@ func main() {
 	//totalExpense([]SalaryCalculator{pemp1, pemp2, cemp1, freelancer1, freelancer2})
 }
 *******/
-
+/***
 // question 2 internal interface
 package main
 
@@ -116,4 +116,29 @@ func main() {
 	describe(w)
 	//call method using w interface
 	w.Work()
+}
+**********/
+
+//question 3 empty interface
+package main
+
+import (
+	"fmt"
+)
+
+func describe(i interface{}) {
+	fmt.Printf("Type = %T, value = %v\n", i, i)
+}
+
+func main() {
+	s := "Hello World"
+	describe(s)
+	i := 55
+	describe(i)
+	strt := struct {
+		name string
+	}{
+		name: "Naveen R",
+	}
+	describe(strt)
 }
