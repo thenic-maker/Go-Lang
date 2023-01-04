@@ -1,3 +1,5 @@
+//question 1
+/****
 package main
 
 import (
@@ -78,4 +80,40 @@ func main() {
 	employees := []SalaryCalculator{pemp1, pemp2, cemp1, freelancer1, freelancer2}
 	totalExpense(employees)
 	//totalExpense([]SalaryCalculator{pemp1, pemp2, cemp1, freelancer1, freelancer2})
+}
+*******/
+
+// question 2 internal interface
+package main
+
+import (
+	"fmt"
+)
+
+type Worker interface {
+	Work()
+}
+
+type Person struct {
+	name string
+}
+
+func (p Person) Work() {
+	fmt.Println(p.name, "is working")
+}
+
+func describe(w Worker) {
+	fmt.Printf("Interface type %T value %v\n", w, w)
+}
+
+func main() {
+	p := Person{
+		name: "Naveen",
+	}
+	// interface worker var
+	var w Worker = p
+	//call function
+	describe(w)
+	//call method using w interface
+	w.Work()
 }
