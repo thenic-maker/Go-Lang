@@ -8,16 +8,16 @@ import (
 )
 
 func process(input string) {
-	fmt.Println(input)
+	// fmt.Println(input)
 	wordSlice := strings.Split(input, ", ")
-	fmt.Println(wordSlice)
+	// fmt.Println(wordSlice)
 	availkeys := []byte{'e', 'r', 't', 'a', 'b', 'd', 'f', 'y', 'h'}
-	fmt.Println(availkeys)
+	// fmt.Println(availkeys)
 	result := ""
 
 	for i := 0; i < len(wordSlice); i++ {
 		str := wordSlice[i]
-		fmt.Println(str)
+		// fmt.Println(str)
 		validinput := ""
 		for j := 0; j < len(str); j++ {
 			for k := 0; k < len(availkeys); k++ {
