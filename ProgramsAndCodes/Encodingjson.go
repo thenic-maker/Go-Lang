@@ -26,9 +26,10 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
 	defer f.Close()
 	io.Copy(f, buf)
 
-	fmt.Println(stu)
+	fmt.Println("hello", buf)
 
 }
