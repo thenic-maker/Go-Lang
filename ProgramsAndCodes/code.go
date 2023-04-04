@@ -22,12 +22,17 @@ import (
 
 func BurstyRateLimiter(requestChan chan bool, resultChan chan int, batchSize int, toAdd int) {
 
-	for i := 0; i < batchSize; i++ {
-		for item := range resultChan {
-			fmt.Println(toAdd * i * item)
+	s := 0
+	for {
+		select {
+		case <-requestChan:
+			for i := 0; i < batchSize; i++ {
+				time.Sleep(3 * time.Millisecond)
+				resultChan <- s
+				s = s + toAdd
+			}
 		}
 	}
-
 }
 
 func main() {
