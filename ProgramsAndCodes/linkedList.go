@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 type Node struct {
-	data int
+	data interface{}
 	next *Node
 }
 
@@ -15,7 +15,7 @@ func (ll *LinkedList) IsEmpty() bool {
 	return ll.head == nil
 }
 
-func (ll *LinkedList) Append(data int) {
+func (ll *LinkedList) Append(data interface{}) {
 	newNode := &Node{data: data}
 
 	if ll.IsEmpty() {
@@ -29,7 +29,7 @@ func (ll *LinkedList) Append(data int) {
 	}
 }
 
-func (ll *LinkedList) Prepend(data int) {
+func (ll *LinkedList) Prepend(data interface{}) {
 	newNode := &Node{data: data}
 
 	if ll.IsEmpty() {
@@ -40,7 +40,7 @@ func (ll *LinkedList) Prepend(data int) {
 	}
 }
 
-func (ll *LinkedList) InsertAfter(prevNode *Node, data int) {
+func (ll *LinkedList) InsertAfter(prevNode *Node, data interface{}) {
 	if prevNode.next == nil {
 		fmt.Println("Previous Node must not be nil")
 		return
@@ -50,7 +50,7 @@ func (ll *LinkedList) InsertAfter(prevNode *Node, data int) {
 	prevNode.next = newNode
 }
 
-func (ll *LinkedList) Delete(data int) {
+func (ll *LinkedList) Delete(data interface{}) {
 	if ll.IsEmpty() {
 		fmt.Println("List is empty, No deletion is performed")
 		return
@@ -75,7 +75,7 @@ func (ll *LinkedList) Delete(data int) {
 	}
 }
 
-func (ll *LinkedList) Search(data int) bool {
+func (ll *LinkedList) Search(data interface{}) bool {
 	currNode := ll.head
 	for currNode != nil {
 		if currNode.data == data {
@@ -99,7 +99,8 @@ func (ll *LinkedList) GetSize() int {
 func (ll *LinkedList) Display() {
 	currNode := ll.head
 	for currNode != nil {
-		fmt.Printf("%d ", currNode.data)
+		fmt.Print(currNode.data)
+		fmt.Print(" ")
 		currNode = currNode.next
 	}
 	fmt.Println()
@@ -109,7 +110,7 @@ func main() {
 	linkedList := LinkedList{}
 	linkedList.Append(10)
 	linkedList.Append(20)
-	linkedList.Append(30)
+	linkedList.Append("Nitin")
 	linkedList.Append(40)
 	linkedList.Prepend(50)
 
@@ -119,6 +120,8 @@ func main() {
 	fmt.Println("Search 30 : ", linkedList.Search(30))
 
 	linkedList.Delete(20)
+
+	linkedList.InsertAfter(linkedList.head.next.next, 90)
 	linkedList.Display()
 
 }
